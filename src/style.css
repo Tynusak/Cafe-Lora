@@ -240,10 +240,18 @@ nav a:hover {
   min-height: 100vh;
 
   color: white;
+  text-shadow: #301a1a;
+  text-align: center;
   background-image: url('./img/gallery.jpg');
   background-size: cover;
   background-position: top center;
   background-attachment: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.gallery p {
+  padding: 20%;
 }
 
 .contacts {
