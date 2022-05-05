@@ -1,4 +1,5 @@
 import './style.css';
+import { Layer } from './Layer/index.js';
 
 document.querySelector('#nav-btn').addEventListener('click', () => {
   document.querySelector('nav').classList.toggle('nav-closed');
@@ -26,3 +27,23 @@ orderButton.addEventListener('click', () => {
     ordered = false;
   }
 });
+
+//Komponenta
+const drinkLayers = [
+  {
+    color: '#feeeca',
+    label: 'mléčná pěna',
+  },
+  {
+    color: '#fed7b0',
+    label: 'teplé mléko',
+  },
+  {
+    color: '#613916',
+    label: 'expresso',
+  },
+];
+
+for (let i = 0; i < drinkLayers.length; i++) {
+  document.querySelector('.drink__info').innerHTML += Layer(drinkLayers[i]);
+}
