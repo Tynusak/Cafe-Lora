@@ -29,7 +29,7 @@ orderButton.addEventListener('click', () => {
 });
 
 //Komponenta
-const drinkLayers = [
+const layers = [
   {
     color: '#feeeca',
     label: 'mléčná pěna',
@@ -44,6 +44,6 @@ const drinkLayers = [
   },
 ];
 
-for (let i = 0; i < drinkLayers.length; i++) {
-  document.querySelector('.drink__info').innerHTML += Layer(drinkLayers[i]);
-}
+layers.forEach(
+  (item) => (document.querySelector('.drink__info').innerHTML += Layer(item)),
+);
