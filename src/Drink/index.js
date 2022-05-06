@@ -29,13 +29,13 @@ export const Drink = (props) => {
   orderButton.addEventListener('click', () => {
     if (!ordered) {
       orderButton.textContent = 'Zrušit';
-      document
+      drinkElement
         .querySelector('.drink__cup')
         .classList.add('drink__cup--selected');
       ordered = true;
     } else {
       orderButton.textContent = 'Objednat';
-      document
+      drinkElement
         .querySelector('.drink__cup')
         .classList.remove('drink__cup--selected');
       ordered = false;
