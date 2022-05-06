@@ -11,44 +11,50 @@ for (let i = 0; i < hamburgerMenu.length; i++) {
     document.querySelector('nav').classList.add('nav-closed');
   });
 }
-const drinks = [
-  {
-    id: 'cappuccino',
-    name: 'Cappuccino',
-    ordered: false,
-    layers: [
-      {
-        color: '#feeeca',
-        label: 'mléčná pěna',
-      },
-      {
-        color: '#fed7b0',
-        label: 'teplé mléko',
-      },
-      {
-        color: '#613916',
-        label: 'espresso',
-      },
-    ],
-    image: 'https://apps.kodim.cz/daweb/cafelora/assets/cups/cappuccino.png',
-  },
-  {
-    id: 'romano',
-    name: 'Romano',
-    ordered: false,
-    layers: [
-      {
-        color: '#fbdf5b',
-        label: 'citrón',
-      },
-      {
-        color: '#613916',
-        label: 'espresso',
-      },
-    ],
-    image: 'https://apps.kodim.cz/daweb/cafelora/assets/cups/romano.png',
-  },
-];
-drinks.forEach((item) =>
-  document.querySelector('.drinks-list').appendChild(Drink(item)),
-);
+// const drinks = [
+//   {
+//     id: 'cappuccino',
+//     name: 'Cappuccino',
+//     ordered: false,
+//     layers: [
+//       {
+//         color: '#feeeca',
+//         label: 'mléčná pěna',
+//       },
+//       {
+//         color: '#fed7b0',
+//         label: 'teplé mléko',
+//       },
+//       {
+//         color: '#613916',
+//         label: 'espresso',
+//       },
+//     ],
+//     image: 'https://apps.kodim.cz/daweb/cafelora/assets/cups/cappuccino.png',
+//   },
+//   {
+//     id: 'romano',
+//     name: 'Romano',
+//     ordered: false,
+//     layers: [
+//       {
+//         color: '#fbdf5b',
+//         label: 'citrón',
+//       },
+//       {
+//         color: '#613916',
+//         label: 'espresso',
+//       },
+//     ],
+//     image: 'https://apps.kodim.cz/daweb/cafelora/assets/cups/romano.png',
+//   },
+// ];
+fetch('https://apps.kodim.cz/daweb/cafelora/api/drinks')
+  .then((response) => {
+    return response.json();
+  })
+  .then((data) => {
+    data.results.forEach((item) =>
+      document.querySelector('.drinks-list').appendChild(Drink(item)),
+    );
+  });
