@@ -3,6 +3,7 @@ import { Layer } from '../Layer/index.js';
 
 export const Drink = (props) => {
   const { name, image, layers } = props;
+  let { ordered } = props;
   const drinkElement = document.createElement('div');
   drinkElement.classList.add('drink');
   drinkElement.innerHTML = `<div class="drink__product">
@@ -23,6 +24,23 @@ export const Drink = (props) => {
     (item) =>
       (drinkElement.querySelector('.drink__info').innerHTML += Layer(item)),
   );
+
+  const orderButton = drinkElement.querySelector('.order-btn');
+  orderButton.addEventListener('click', () => {
+    if (!ordered) {
+      orderButton.textContent = 'Zrušit';
+      document
+        .querySelector('.drink__cup')
+        .classList.add('drink__cup--selected');
+      ordered = true;
+    } else {
+      orderButton.textContent = 'Objednat';
+      document
+        .querySelector('.drink__cup')
+        .classList.remove('drink__cup--selected');
+      ordered = false;
+    }
+  });
 
   return drinkElement;
 };

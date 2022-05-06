@@ -28,20 +28,3 @@ const drink = {
   ],
 };
 document.querySelector('.drinks-list').appendChild(Drink(drink));
-
-// let ordered = false;
-// const orderButton = document.querySelector('.order-btn');
-
-// orderButton.addEventListener('click', () => {
-//   if (!ordered) {
-//     orderButton.textContent = 'Zrušit';
-//     document.querySelector('.drink__cup').classList.add('drink__cup--selected');
-//     ordered = true;
-//   } else {
-//     orderButton.textContent = 'Objednat';
-//     document
-//       .querySelector('.drink__cup')
-//       .classList.remove('drink__cup--selected');
-//     ordered = false;
-//   }
-// });
