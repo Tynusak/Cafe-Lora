@@ -1,5 +1,5 @@
 import './style.css';
-import { Layer } from './Layer/index.js';
+import { Drink } from './Drink/index.js';
 
 document.querySelector('#nav-btn').addEventListener('click', () => {
   document.querySelector('nav').classList.toggle('nav-closed');
@@ -11,39 +11,37 @@ for (let i = 0; i < hamburgerMenu.length; i++) {
     document.querySelector('nav').classList.add('nav-closed');
   });
 }
-let ordered = false;
-const orderButton = document.querySelector('.order-btn');
+const drink = {
+  id: 'romano',
+  name: 'Romano',
+  ordered: false,
+  image: 'https://apps.kodim.cz/daweb/cafelora/assets/cups/romano.png',
+  layers: [
+    {
+      color: '#fbdf5b',
+      label: 'citrón',
+    },
+    {
+      color: '#613916',
+      label: 'espresso',
+    },
+  ],
+};
+document.querySelector('.drinks-list').appendChild(Drink(drink));
 
-orderButton.addEventListener('click', () => {
-  if (!ordered) {
-    orderButton.textContent = 'Zrušit';
-    document.querySelector('.drink__cup').classList.add('drink__cup--selected');
-    ordered = true;
-  } else {
-    orderButton.textContent = 'Objednat';
-    document
-      .querySelector('.drink__cup')
-      .classList.remove('drink__cup--selected');
-    ordered = false;
-  }
-});
+// let ordered = false;
+// const orderButton = document.querySelector('.order-btn');
 
-//Komponenta
-const layers = [
-  {
-    color: '#feeeca',
-    label: 'mléčná pěna',
-  },
-  {
-    color: '#fed7b0',
-    label: 'teplé mléko',
-  },
-  {
-    color: '#613916',
-    label: 'expresso',
-  },
-];
-
-layers.forEach(
-  (item) => (document.querySelector('.drink__info').innerHTML += Layer(item)),
-);
+// orderButton.addEventListener('click', () => {
+//   if (!ordered) {
+//     orderButton.textContent = 'Zrušit';
+//     document.querySelector('.drink__cup').classList.add('drink__cup--selected');
+//     ordered = true;
+//   } else {
+//     orderButton.textContent = 'Objednat';
+//     document
+//       .querySelector('.drink__cup')
+//       .classList.remove('drink__cup--selected');
+//     ordered = false;
+//   }
+// });
